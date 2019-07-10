@@ -1,0 +1,144 @@
+nvidia@tegra-ubuntu:~$ cd 0-cv-hello
+nvidia@tegra-ubuntu:~/0-cv-hello$ cd /build
+bash: cd: /build: No such file or directory
+nvidia@tegra-ubuntu:~/0-cv-hello$ cd build
+nvidia@tegra-ubuntu:~/0-cv-hello/build$ cmake ..
+CMake Error: Error in cmake code at
+/home/nvidia/0-cv-hello/CMakeLists.txt:7:
+Parse error.  Expected "(", got identifier with text "directoris".
+-- Configuring incomplete, errors occurred!
+nvidia@tegra-ubuntu:~/0-cv-hello/build$ cmake ..
+CMake Error: Error in cmake code at
+/home/nvidia/0-cv-hello/CMakeLists.txt:7:
+Parse error.  Expected "(", got identifier with text "directories".
+-- Configuring incomplete, errors occurred!
+nvidia@tegra-ubuntu:~/0-cv-hello/build$ cmake ..
+-- The C compiler identification is GNU 5.4.0
+-- The CXX compiler identification is GNU 5.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found CUDA: /usr/local/cuda-8.0 (found suitable exact version "8.0") 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/nvidia/0-cv-hello/build
+nvidia@tegra-ubuntu:~/0-cv-hello/build$ ./cv_hello
+bash: ./cv_hello: No such file or directory
+nvidia@tegra-ubuntu:~/0-cv-hello/build$ ./cv-hello
+bash: ./cv-hello: No such file or directory
+nvidia@tegra-ubuntu:~/0-cv-hello/build$ cmake ..
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/nvidia/0-cv-hello/build
+nvidia@tegra-ubuntu:~/0-cv-hello/build$ make
+Scanning dependencies of target cv_hello
+[ 50%] Building CXX object CMakeFiles/cv_hello.dir/hello.cpp.o
+/home/nvidia/0-cv-hello/hello.cpp:1:40: fatal error: opencv2/highgui2/highgui.hpp: No such file or directory
+compilation terminated.
+CMakeFiles/cv_hello.dir/build.make:62: recipe for target 'CMakeFiles/cv_hello.dir/hello.cpp.o' failed
+make[2]: *** [CMakeFiles/cv_hello.dir/hello.cpp.o] Error 1
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/cv_hello.dir/all' failed
+make[1]: *** [CMakeFiles/cv_hello.dir/all] Error 2
+Makefile:83: recipe for target 'all' failed
+make: *** [all] Error 2
+nvidia@tegra-ubuntu:~/0-cv-hello/build$ make
+Scanning dependencies of target cv_hello
+[ 50%] Building CXX object CMakeFiles/cv_hello.dir/hello.cpp.o
+/home/nvidia/0-cv-hello/hello.cpp:1:1: error: ‘include’ does not name a type
+ include "opencv2/highgui/highgui.hpp"
+ ^
+CMakeFiles/cv_hello.dir/build.make:62: recipe for target 'CMakeFiles/cv_hello.dir/hello.cpp.o' failed
+make[2]: *** [CMakeFiles/cv_hello.dir/hello.cpp.o] Error 1
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/cv_hello.dir/all' failed
+make[1]: *** [CMakeFiles/cv_hello.dir/all] Error 2
+Makefile:83: recipe for target 'all' failed
+make: *** [all] Error 2
+nvidia@tegra-ubuntu:~/0-cv-hello/build$ make
+Scanning dependencies of target cv_hello
+[ 50%] Building CXX object CMakeFiles/cv_hello.dir/hello.cpp.o
+/home/nvidia/0-cv-hello/hello.cpp:1:1: error: ‘include’ does not name a type
+ include <opencv2/highgui/highgui.hpp>
+ ^
+CMakeFiles/cv_hello.dir/build.make:62: recipe for target 'CMakeFiles/cv_hello.dir/hello.cpp.o' failed
+make[2]: *** [CMakeFiles/cv_hello.dir/hello.cpp.o] Error 1
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/cv_hello.dir/all' failed
+make[1]: *** [CMakeFiles/cv_hello.dir/all] Error 2
+Makefile:83: recipe for target 'all' failed
+make: *** [all] Error 2
+nvidia@tegra-ubuntu:~/0-cv-hello/build$ make
+Scanning dependencies of target cv_hello
+[ 50%] Building CXX object CMakeFiles/cv_hello.dir/hello.cpp.o
+/home/nvidia/0-cv-hello/hello.cpp:1:1: error: ‘include’ does not name a type
+ include <opencv2/highgui/highgui.hpp>
+ ^
+/home/nvidia/0-cv-hello/hello.cpp: In function ‘int main()’:
+/home/nvidia/0-cv-hello/hello.cpp:6:5: error: ‘cv’ has not been declared
+     cv::Mat img(512, 512, CV_8UC3, cv::Scalar(0));
+     ^
+/home/nvidia/0-cv-hello/hello.cpp:8:5: error: ‘cv’ has not been declared
+     cv::putText(img,
+     ^
+/home/nvidia/0-cv-hello/hello.cpp:8:17: error: ‘img’ was not declared in this scope
+     cv::putText(img,
+                 ^
+/home/nvidia/0-cv-hello/hello.cpp:10:2: error: ‘cv’ has not been declared
+  cv::Point(10, img.rows/2),
+  ^
+/home/nvidia/0-cv-hello/hello.cpp:11:2: error: ‘cv’ has not been declared
+  cv::FONT_HERSHEY_DUPLEX,
+  ^
+/home/nvidia/0-cv-hello/hello.cpp:13:20: error: ‘CV_RGB’ was not declared in this scope
+  CV_RGB(118, 185, 0),
+                    ^
+/home/nvidia/0-cv-hello/hello.cpp:16:5: error: ‘cv’ has not been declared
+     cv::inshow("Hello",img);
+     ^
+/home/nvidia/0-cv-hello/hello.cpp:17:5: error: ‘cv’ has not been declared
+     cv::waitKey();
+     ^
+CMakeFiles/cv_hello.dir/build.make:62: recipe for target 'CMakeFiles/cv_hello.dir/hello.cpp.o' failed
+make[2]: *** [CMakeFiles/cv_hello.dir/hello.cpp.o] Error 1
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/cv_hello.dir/all' failed
+make[1]: *** [CMakeFiles/cv_hello.dir/all] Error 2
+Makefile:83: recipe for target 'all' failed
+make: *** [all] Error 2
+nvidia@tegra-ubuntu:~/0-cv-hello/build$ make
+Scanning dependencies of target cv_hello
+[ 50%] Building CXX object CMakeFiles/cv_hello.dir/hello.cpp.o
+/home/nvidia/0-cv-hello/hello.cpp: In function ‘int main()’:
+/home/nvidia/0-cv-hello/hello.cpp:16:5: error: ‘inshow’ is not a member of ‘cv’
+     cv::inshow("Hello",img);
+     ^
+CMakeFiles/cv_hello.dir/build.make:62: recipe for target 'CMakeFiles/cv_hello.dir/hello.cpp.o' failed
+make[2]: *** [CMakeFiles/cv_hello.dir/hello.cpp.o] Error 1
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/cv_hello.dir/all' failed
+make[1]: *** [CMakeFiles/cv_hello.dir/all] Error 2
+Makefile:83: recipe for target 'all' failed
+make: *** [all] Error 2
+nvidia@tegra-ubuntu:~/0-cv-hello/build$ make
+Scanning dependencies of target cv_hello
+[ 50%] Building CXX object CMakeFiles/cv_hello.dir/hello.cpp.o
+[100%] Linking CXX executable cv_hello
+[100%] Built target cv_hello
+nvidia@tegra-ubuntu:~/0-cv-hello/build$ ./cv_hello
+^C
+nvidia@tegra-ubuntu:~/0-cv-hello/build$ 
+
